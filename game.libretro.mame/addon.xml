@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="gameclient.mame"
+<addon id="game.libretro.mame"
 		name="MAME"
 		version="0.78.0"
 		provider-name="Libretro">
 	<requires>
-		<import addon="xbmc.libretro" version="1.0.0"/>
+	    <import addon="game.libretro" version="1.0.0"/>
 	</requires>
-	<extension point="xbmc.gameclient"
-			library_android=""
-			library_linux="mame078_libretro.so"
-			library_osx=""
-			library_windx=""
-			library_wingl="">
+	<extension point="kodi.gameclient"
+                   library_android="libgame.libretro.mame.so"
+                   library_linux="game.libretro.mame.so"
+                   library_osx="game.libretro.mame.dylib"
+                   library_windx="game.libretro.mame.dll"
+                   library_wingl="game.libretro.mame.dll">
 		<platforms></platforms>
 		<extensions>zip</extensions>
 		<allowvfs>false</allowvfs>
@@ -26,8 +26,6 @@ Supported files: .zip
 Icon credit: peter-86 (peter-86.deviantart.com)
 
 Source: https://github.com/libretro/mame078-libretro</description>
-		<platform>linux</platform>
-		<nofanart>true</nofanart>
-		
+		<platform>all</platform>
 	</extension>
 </addon>
