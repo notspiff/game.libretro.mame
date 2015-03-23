@@ -13,11 +13,11 @@ if(CMAKE_BUILD_TYPE MATCHES Debug)
 endif()
 
 if("${CORE_SYSTEM_NAME}" STREQUAL "windows")
-  set(BUILD_COMMAND mingw32-make platform=win ${LIBRETRO_DEBUG})
+  set(BUILD_COMMAND mingw32-make -f Makefile.libretro platform=win ${LIBRETRO_DEBUG})
 elseif("${CORE_SYSTEM_NAME}" STREQUAL "linux")
-  set(BUILD_COMMAND make ${LIBRETRO_DEBUG})
+  set(BUILD_COMMAND make -f Makefile.libretro ${LIBRETRO_DEBUG})
 elseif("${CORE_SYSTEM_NAME}" STREQUAL "darwin")
-  set(BUILD_COMMAND make platform=osx ${LIBRETRO_DEBUG})
+  set(BUILD_COMMAND make -f Makefile.libretro platform=osx ${LIBRETRO_DEBUG})
 elseif("${CORE_SYSTEM_NAME}" STREQUAL "ios")
   # TODO
 elseif("${CORE_SYSTEM_NAME}" STREQUAL "android")
@@ -30,15 +30,15 @@ endif()
 
 include(ExternalProject)
 externalproject_add(mame 
-                    GIT_REPOSITORY https://github.com/libretro/mame078-libretro
-                    GIT_TAG d980525
+                    GIT_REPOSITORY https://github.com/libretro/mame
+                    GIT_TAG ffd66b3
                     PREFIX mame
                     CONFIGURE_COMMAND ""
                     INSTALL_COMMAND ""
                     BUILD_COMMAND ${BUILD_COMMAND}
                     BUILD_IN_SOURCE 1)
 
-set(MAME_CUSTOM_BINARY ${PROJECT_BINARY_DIR}/mame/src/mame/mame078_libretro${CMAKE_SHARED_LIBRARY_SUFFIX}
+set(MAME_CUSTOM_BINARY ${PROJECT_BINARY_DIR}/mame/src/mame/mame_libretro${CMAKE_SHARED_LIBRARY_SUFFIX}
                        game.libretro.mame${CMAKE_SHARED_LIBRARY_SUFFIX} mame)
 
 build_addon(game.libretro.mame MAME DEPLIBS)
