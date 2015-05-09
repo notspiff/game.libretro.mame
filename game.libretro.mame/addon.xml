@@ -14,8 +14,8 @@
                    library_wingl="game.libretro.mame.dll">
 		<platforms></platforms>
 		<extensions>zip</extensions>
-		<allowvfs>false</allowvfs>
-		<blockextract>true</blockextract>
+		<supports_vfs>false</supports_vfs>
+		<supports_no_game>false</supports_no_game>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">MAME v0.78</summary>
@@ -25,7 +25,8 @@ Supported files: .zip
 
 Icon credit: peter-86 (peter-86.deviantart.com)
 
-Source: https://github.com/libretro/mame078-libretro</description>
+License: Non-commercial</description>
 		<platform>all</platform>
+		<nofanart>true</nofanart>
 	</extension>
 </addon>
