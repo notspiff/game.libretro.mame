@@ -7,41 +7,10 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
 enable_language(CXX)
 
 find_package(kodi REQUIRED)
+find_package(libretro-mame REQUIRED)
 
-if(CMAKE_BUILD_TYPE MATCHES Debug)
-  set(LIBRETRO_DEBUG DEBUG=1)
-endif()
+set(DEPLIBS mame)
+set(MAME_CUSTOM_BINARY ${MAME_LIB}
+                       ${PROJECT_NAME}${CMAKE_SHARED_LIBRARY_SUFFIX} mame)
 
-if("${CORE_SYSTEM_NAME}" STREQUAL "windows")
-  set(BUILD_COMMAND mingw32-make -f Makefile.libretro platform=win ${LIBRETRO_DEBUG})
-elseif("${CORE_SYSTEM_NAME}" STREQUAL "linux")
-  set(BUILD_COMMAND make -f Makefile.libretro ${LIBRETRO_DEBUG})
-elseif("${CORE_SYSTEM_NAME}" STREQUAL "darwin")
-  set(BUILD_COMMAND make -f Makefile.libretro platform=osx ${LIBRETRO_DEBUG})
-elseif("${CORE_SYSTEM_NAME}" STREQUAL "ios")
-  # TODO
-elseif("${CORE_SYSTEM_NAME}" STREQUAL "android")
-  # TODO
-elseif("${CORE_SYSTEM_NAME}" STREQUAL "rbpi")
-  # TODO
-elseif("${CORE_SYSTEM_NAME}" STREQUAL "freebsd")
-# TODO
-endif()
-
-include(ExternalProject)
-externalproject_add(mame 
-                    GIT_REPOSITORY https://github.com/libretro/mame
-                    GIT_TAG ffd66b3
-                    PREFIX mame
-                    CONFIGURE_COMMAND ""
-                    INSTALL_COMMAND ""
-                    BUILD_COMMAND ${BUILD_COMMAND}
-                    BUILD_IN_SOURCE 1)
-
-set(MAME_CUSTOM_BINARY ${PROJECT_BINARY_DIR}/mame/src/mame/mame_libretro${CMAKE_SHARED_LIBRARY_SUFFIX}
-                       game.libretro.mame${CMAKE_SHARED_LIBRARY_SUFFIX} mame)
-
-build_addon(game.libretro.mame MAME DEPLIBS)
-add_dependencies(game.libretro.mame mame)
-
-include(CPack)
+build_addon(${PROJECT_NAME} MAME DEPLIBS)
