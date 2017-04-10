@@ -1,14 +1,14 @@
-# XBMC Media Center language file
-# Addon Name: @name@
-# Addon id: @id@
-# Addon Provider: @authors@
+# game.libretro.mame language file
+# Addon Name: game.libretro.mame
+# Addon id: game.libretro.mame
+# Addon Provider: libretro
 msgid ""
 msgstr ""
-"Project-Id-Version: Libretro Clients\n"
+"Project-Id-Version: game.libretro.mame\n"
 "Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
 "POT-Creation-Date: 2014-05-30 17:00+8\n"
 "PO-Revision-Date: 2014-05-30 17:00+8\n"
-"Last-Translator: XBMC Translation Team\n"
+"Last-Translator: Kodi Translation Team\n"
 "Language-Team: English (http://www.transifex.com/projects/p/xbmc-addons/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,21 +21,62 @@ msgid "Settings"
 msgstr ""
 
 msgctxt "#30001"
-msgid "Enable mouse"
+msgid "Alternate render method"
 msgstr ""
 
 msgctxt "#30002"
-msgid "Enable nagscreen patch"
+msgid "Resolution"
 msgstr ""
 
 msgctxt "#30003"
-msgid "Enable video approach 1"
+msgid "Auto save/load states"
 msgstr ""
 
 msgctxt "#30004"
-msgid "Boot to OSD"
+msgid "Boot from CLI"
 msgstr ""
 
 msgctxt "#30005"
-msgid "Experimental CLI"
+msgid "Boot to BIOS"
 msgstr ""
+
+msgctxt "#30006"
+msgid "Boot to OSD"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Enable cheats"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Media type"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Enable in-game mouse"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Read configuration"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Save state naming"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Softlist automatic media type"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Enable softlists"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Enable throttle"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Write configuration"
+msgstr ""
+
